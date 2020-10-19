@@ -9,12 +9,18 @@
 using namespace std;
 map<char, uint64_t> countmap;
 
+#define endl "\r\n" 
 
 int main(int argc, char const *argv[])
 {
+    freopen("3.in", "r", stdin);
+    freopen("my.out", "w", stdout);
+
     int n = 0;
     cin >> n;
-    cin.ignore();
+    cin.get();
+    cin.get();
+
     for (int i = 0; i < n; i++)
     {
         string line;
@@ -23,7 +29,7 @@ int main(int argc, char const *argv[])
         uint64_t len = line.length();
         for (uint64_t j = 0; j < len; j++)
         {
-            countmap[line[j]]++;
+            countmap[tolower(line[j])]++;
         }
 
         cout << "a:" << countmap['a'] << endl;
@@ -32,7 +38,8 @@ int main(int argc, char const *argv[])
         cout << "o:" << countmap['o'] << endl;
         cout << "u:" << countmap['u'];
         if (i != n - 1)
-            cout << endl << endl;
+            cout << endl
+                 << endl;
 
         countmap.clear();
     }
